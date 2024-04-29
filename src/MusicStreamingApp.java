@@ -2,7 +2,22 @@
 
 import java.util.List;
 
+/**
+ * A driver class for testing the Music Streaming App functionality.
+ * It creates an instance of SongServiceImpl as the real server implementation,
+ * creates a proxy object for caching song metadata, and performs various
+ * searches for songs.
+ */
 public class MusicStreamingApp {
+
+    /**
+     * The main method of the Music Streaming App.
+     * It creates an instance of SongServiceImpl as the real server implementation,
+     * creates a proxy object for caching song metadata, and performs various
+     * searches for songs.
+     * 
+     * @param args The command-line arguments (not used in this program)
+     */
     public static void main(String[] args) {
         // Create instance of SongServiceImpl as the real server implementation
         SongService songService = new SongServiceImpl(); // Create proxy object for caching song metadata

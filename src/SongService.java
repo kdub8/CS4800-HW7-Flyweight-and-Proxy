@@ -3,13 +3,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// Concrete class representing the Song object
+/**
+ * Concrete class representing a Song object with title, artist, album, and
+ * duration.
+ */
 class Song {
     private String title;
     private String artist;
     private String album;
     private int duration;
 
+    /**
+     * Constructs a Song object with the specified title, artist, album, and
+     * duration.
+     *
+     * @param title    The title of the song.
+     * @param artist   The artist of the song.
+     * @param album    The album of the song.
+     * @param duration The duration of the song in seconds.
+     */
     public Song(String title, String artist, String album, int duration) {
         this.title = title;
         this.artist = artist;
@@ -35,16 +47,42 @@ class Song {
     }
 }
 
-// SongService interface
+/**
+ * SongService interface defining methods for searching songs by ID, title, and
+ * album.
+ */
 public interface SongService {
+    /**
+     * Searches for a song by its ID.
+     *
+     * @param songID The ID of the song to search for.
+     * @return The song with the specified ID, or null if not found.
+     */
     Song searchById(Integer songID);
 
+    /**
+     * Searches for songs by their title.
+     *
+     * @param title The title of the songs to search for.
+     * @return A list of songs with the specified title, or an empty list if none
+     *         found.
+     */
     List<Song> searchByTitle(String title);
 
+    /**
+     * Searches for songs by their album.
+     *
+     * @param album The album of the songs to search for.
+     * @return A list of songs in the specified album, or an empty list if none
+     *         found.
+     */
     List<Song> searchByAlbum(String album);
 }
 
-// Concrete implementation of SongService interface
+/**
+ * Concrete implementation of SongService interface with a simulated database of
+ * songs.
+ */
 class SongServiceImpl implements SongService {
     // Simulated database of songs
     private Map<Integer, Song> songsDatabase;
@@ -111,7 +149,9 @@ class SongServiceImpl implements SongService {
     }
 }
 
-// Proxy implementation of SongService interface for caching song metadata
+/**
+ * Proxy implementation of SongService interface for caching song metadata.
+ */
 class SongServiceProxy implements SongService {
     private SongService songService;
     private Map<Integer, Song> songCache; // Cache to store song metadata
